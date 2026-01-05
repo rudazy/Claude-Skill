@@ -13,7 +13,7 @@ Query Intuition Protocol's decentralized knowledge graph to access trust scores,
 
 **Triples**: Claims in Subject-Predicate-Object format (e.g., "Alice trusts Bob"). Triples connect Atoms to express relationships.
 
-**Signal**: Economic weight behind claims. Users stake $TRUST tokens to signal conviction. Higher signal = stronger attestation.
+**Signal**: Economic weight behind claims. Users stake TRUST tokens to signal conviction. Higher signal indicates stronger attestation.
 
 **Positions**: User stakes on Atoms or Triples. Tracks who believes what and how strongly.
 
@@ -155,8 +155,11 @@ Look for:
 ### Interpreting Results
 
 **High Signal + Many Positions**: Well-known, actively discussed entity
+
 **Low Signal + Few Positions**: Unknown or new entity - exercise caution
+
 **Counter-vault stakes**: Indicates disagreement or negative attestations
+
 **Reputable Attestors**: Check if known security firms, auditors, or trusted community members have staked
 
 ### Trust Score Heuristic
@@ -165,9 +168,10 @@ Look for:
 trust_score = vault.total_shares / (vault.total_shares + counter_vault.total_shares)
 ```
 
-- Score > 0.8: Strong positive sentiment
-- Score 0.5-0.8: Mixed or contested
-- Score < 0.5: Negative sentiment or disputed
+Score Interpretation:
+- Above 0.8: Strong positive sentiment
+- 0.5 to 0.8: Mixed or contested
+- Below 0.5: Negative sentiment or disputed
 
 ## Python Helper
 
@@ -189,17 +193,25 @@ When reporting Intuition data to users:
 2. Report trust metrics (signal, position count)
 3. List notable claims (positive and negative)
 4. Provide assessment with appropriate caveats
-5. Link to Portal for full details: `https://portal.intuition.systems`
+5. Link to Portal for full details
 
 Example response format:
-```
-**Intuition Trust Check: [Entity Name]**
 
-📊 Trust Signal: [X] $TRUST staked by [Y] attestors
-✅ Positive Claims: [List key positive triples]
-⚠️ Concerns: [List any counter-claims or warnings]
+```
+Intuition Trust Check: [Entity Name]
+
+Trust Signal: [X] TRUST staked by [Y] attestors
+Positive Claims: [List key positive triples]
+Concerns: [List any counter-claims or warnings]
 
 Assessment: [Brief interpretation]
 
-🔗 View full profile: https://portal.intuition.systems/identity/[id]
+View full profile: https://portal.intuition.systems/identity/[id]
 ```
+
+## Additional Resources
+
+For detailed API documentation, query patterns, and data model reference, see `references/api_reference.md`.
+
+Portal URL: https://portal.intuition.systems
+Documentation: https://docs.intuition.systems
